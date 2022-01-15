@@ -3,3 +3,6 @@
 
 ## node modules ##
 node_modules
+
+## GCP key for inventory tracker
+/GCPkey.json
