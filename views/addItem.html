@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="../files/css/style.css">
     </head>
     <body>
+    <!-- header -->
     <header>
         <div class="container">
             <div class="text-center head">  
@@ -13,15 +14,39 @@
             </div>
         </div>
     </header>
+
+    <!-- main -->
     <main id="homepage">
         <div class="container">
             <div class="box-nav d-flex justify-between">
-                <a href="/add-item" class="border-shadow">
-                    <span class="text-gradient">New Item<i class="fas fa-user"></i></span>
+                <a href="/" class="border-shadow">
+                    <span class="text-gradient">Back<i class="fas fa-user"></i></span>
                 </a> 
             </div>
+            <div class="form-title text-center">
+                <h2>To add an item</h2>
+                <h3>fill the form below</h3>
+            </div>
+            <!-- form -->
             <form method="POST" id="add-item">
-                
+                <div class="new-item">
+                    <div class="form-group">
+                        <label for="name" class="text-light">Item Name</label>
+                        <input type="hidden" name="id" value="">
+                        <input type="text" name="name" value="" placeholder="Text">
+                    </div>
+                    <div class="form-group">
+                        <label for="quantity" class="text-light">Available quanitity</label>
+                        <input type="hidden" name="id" value="">
+                        <input type="text" name="quanitity" value="" placeholder="Integer">
+                    </div>
+                    <div class="form-group">
+                        <label for="image" class="text-light">Image</label>
+                        <input type="hidden" name="id" value="">
+                        <input type="file" name="image" value="" placeholder="File">
+                        <button type="submit">Upload</button>
+                    </div>
+                </div>
             </form>
         </div>
     </main>
