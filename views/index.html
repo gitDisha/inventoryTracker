@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>InventoryTracker</title>
+        <link rel="stylesheet" href="../files/css/style.css">
+    </head>
+    <body>
+    <header>
+        <div class="container">
+            <div class="text-center head">  
+                <a href="/" class="nav-brand white-text">Inventory Tracker</a>
+            </div>
+        </div>
+    </header>
+    <main id="homepage">
+        <div class="container">
+            <div class="box-nav d-flex justify-between">
+                <a href="/add-item" class="border-shadow">
+                    <span class="text-gradient">New Item<i class="fas fa-user"></i></span>
+                </a> 
+            </div>
+            <form action="/" method="POST">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Item name</th>
+                            <th>Available quantity</th>
+                            <th>Image</th>
+                            <th>Changes</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apple</td>
+                            <td>43</td>
+                            <td>none</td>
+                            <td>
+                                <a href="#" class="button border-shadow update">
+                                    <span class="text-gradient">Edit</span>
+                                </a>
+                                <a class="button border-shadow update">
+                                    <span class="text-gradient">Delete</span>
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

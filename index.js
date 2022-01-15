@@ -2,8 +2,7 @@ const http = require("http");
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const bodyParser = require("body-parser");
-
-// const path = require("path");
+const path = require("path");
 // const fs = require("fs");
 
 const express = require("express");
@@ -11,6 +10,8 @@ const app = express();
 
 dotenv.config({path:'config.env'})
 
+//engine ejs. need to specify if folder changes
+app.set("view engine", "ejs")
 
 //log request
 app.use(morgan('tiny'));
@@ -18,9 +19,12 @@ app.use(morgan('tiny'));
 //parsing requests
 app.use(bodyParser.urlencoded({extended: true}))
 
+//defining paths
+// app.use('/css',express.static(path(__dirname,"file/css")))
+
 //sending and receiving requests
 app.get("/", function(req,res){
-    res.send("Hello")
+    res.render('index.ejs')
 });
 
 //view engine that helps with templating. Simplest to use
