@@ -1,4 +1,33 @@
 <%- include('helpers/_header.ejs') %> 
+
+<main id="homepage">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <a href="/add-item" class="border-shadow">
+                <span class="text-gradient">New Item<i class="fas fa-user"></i></span>
+            </a> 
+        </div>
+        <form action="/" method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Item name</th>
+                        <th>Available quantity</th>
+                        <th>Image</th>
+                        <th>Changes</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <%- include('helpers/_tableData.ejs')  %> 
+                </tbody>
+            </table>
+        </form>
+    </div>
+</main>
+
+<%- include('helpers/_footer.ejs') %> 
+
     <!-- <form class="" action="/" method="post">
         <input type="text" name="newItem">
         <button type="submit" name="button"></button>
@@ -8,4 +37,3 @@
         <input type="file" name="uploaded_file">
         <input type="submit" value="Submit">
     </form> -->
- <%- include('helpers/_footer.ejs') %> 

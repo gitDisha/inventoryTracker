@@ -22,9 +22,17 @@ app.use(bodyParser.urlencoded({extended: true}))
 //defining paths
 // app.use('/css',express.static(path(__dirname,"file/css")))
 
-//sending and receiving requests
+//sending and receiving requests to homepage
 app.get("/", function(req,res){
     res.render('index.ejs')
+});
+
+app.get("/add-item", function(req,res){
+    res.render('addItem.ejs')
+});
+
+app.get("/edit-item", function(req,res){
+    res.render('editItem.ejs')
 });
 
 //view engine that helps with templating. Simplest to use
