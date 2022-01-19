@@ -3,11 +3,13 @@ const dotenv = require('dotenv')
 const morgan = require('morgan')
 const bodyParser = require("body-parser");
 const path = require("path");
+const mongoConnection = require('./server/mongo')
+
 // const fs = require("fs");
 const express = require("express");
 const app = express();
 
-dotenv.config({path:'config.env'})
+dotenv.config({ path: 'config.env' })
 
 //engine ejs. need to specify if folder changes
 app.set("view engine", "ejs")
@@ -16,7 +18,7 @@ app.set("view engine", "ejs")
 app.use(morgan('tiny'));
 
 //parsing requests
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }))
 
 //router
 app.use(require('./server/router'))
@@ -26,6 +28,6 @@ app.use(express.urlencoded({ extended: true }))
 
 const PORT = process.env.PORT || 3000;
 
-http.createServer(app).listen(PORT, function() {
+http.createServer(app).listen(PORT, function () {
     console.log(`Server is running on local port ${PORT}`);
 });
