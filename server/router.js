@@ -19,9 +19,10 @@ route.get("/add-item", function (req, res) {
     res.render('addItem.ejs')
 });
 
-route.get("/edit-item", function(req,res){
-    res.render('editItem.ejs')
+route.get("/update-item", function(req,res){
+    res.render('updateItem.ejs')
 });
+
 //CRUD routes
 route.post('/api/items', crud.create)
 route.get('/api/items', crud.read)
