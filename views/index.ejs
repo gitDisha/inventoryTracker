@@ -1,14 +1,52 @@
 <%- include('helpers/_header.ejs') %> 
 
+
+<script>
+    //create CSV file data in an array
+    var csvFileData = [
+       ['Alan Walker', 'Singer'],
+       ['Cristiano Ronaldo', 'Footballer'],
+       ['Saina Nehwal', 'Badminton Player'],
+       ['Arijit Singh', 'Singer'],
+       ['Terence Lewis', 'Dancer']
+    ];
+      
+    //create a user-defined function to download CSV file 
+    function download_csv_file() {
+    
+        //define the heading for each row of the data
+        var csv = 'Name,Quantity\n';
+        
+        //merge the data with CSV
+        csvFileData.forEach(function(row) {
+                csv += row.join(',');
+                csv += "\n";
+        });
+     
+        //display the created CSV data on the web browser 
+        // document.write(csv);
+    
+       
+        var hiddenElement = document.createElement('a');
+        hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+        hiddenElement.target = '_blank';
+        
+        //provide the name for the CSV file to be downloaded
+        hiddenElement.download = 'inventory.csv';
+        hiddenElement.click();
+    }
+    </script>
+    
 <main id="homepage">
     <div class="container">
         <div class="box-nav d-flex justify-between">
             <a href="/add-item" class="border-shadow">
                 <span class="text-gradient">New Item<i class="fas fa-user"></i></span>
             </a> 
-            <a href="" class="border-shadow">
+            <!-- <a href="./csv.ejs" class="border-shadow">
                 <span class="text-gradient">Download CSV<i class="fas fa-user"></i></span>
-            </a> 
+            </a>  -->
+            <button onclick="download_csv_file()"> Download CSV</button>
         </div>
         <form action="/" method="POST">
             <table class="table">

@@ -2,6 +2,9 @@ const { MongoClient } = require('mongodb');
 var itemsData = require('./template')
 var ObjectId = require('mongodb').ObjectId;
 const client = new MongoClient(process.env.MONGO_URI);
+const csvwriter = require('csv-writer');
+
+let createCsvWriter = csvwriter.createObjectCsvWriter;
 // var userDb = require('./template')
 
 exports.create = async (req, res) => {
@@ -37,8 +40,8 @@ exports.read = async (req, res) => {
             }
             res.send(data)
         })
-    } else{
-        data = await client.db("InventoryTracker").collection("Items").find().toArray().then((data)=>{
+    } else {
+        data = await client.db("InventoryTracker").collection("Items").find().toArray().then((data) => {
             console.log(data);
             res.send(data)
         })
@@ -73,4 +76,27 @@ exports.delete = async (req, res) => {
     await client.connect()
     data = client.db("InventoryTracker").collection("Items").deleteOne({ _id: new ObjectId(id) })
     res.send(data)
+}
+
+exports.csv = async (req, res) => {
+    console.log("download");
+
+    await client.connect()
+    client.db("InventoryTracker").collection("Items").find().toArray().then((data) => {
+        const path = 'inventory.csv';
+        const csvWriter = createCsvWriter({
+            path: path,
+            header: [{ id: 'name', title: 'Name' }, { id: 'quantity', title: 'Quantity' },]
+        });
+
+        try {
+            csvWriter.writeRecords(data)
+                .then(() => { res.download(path); });
+        }
+        catch (error) {
+            console.log(error);
+        }
+        res.status(200)
+
+    })
 }
