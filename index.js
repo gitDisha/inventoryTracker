@@ -9,10 +9,7 @@ const mongoConnection = require('./server/mongoSetup')
 const express = require("express");
 const app = express();
 
-dotenv.config({ path: 'config.env' })
-
-//engine ejs. need to specify if folder changes
-app.set("view engine", "ejs")
+dotenv.config({ path: 'config.env'})
 
 //log request
 app.use(morgan('tiny'));
@@ -25,9 +22,6 @@ app.use(require('./server/router'))
 
 //view engine that helps with templating. Simplest to use
 app.use(express.urlencoded({ extended: true }))
-
-app.use('/css', express.static(path.resolve(__dirname, "files/css")))
-app.use('/css', express.static(path.resolve(__dirname, "files/js")))
 
 const PORT = process.env.PORT || 3000;
 
