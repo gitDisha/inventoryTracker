@@ -31,16 +31,14 @@ exports.read = async (req, res) => {
     await client.connect();
     if (req.params.id) {
         client.db("InventoryTracker").collection("Items").findOne({ _id: new ObjectId(req.params.id) }, (err, data) => {
-            if (data) {
-                console.log("found data:" + data)
+            if (err) {
+                res.status(400).send("error: " + err)
             } else {
-                console.log("did not find any data")
+                res.send(data)
             }
-            res.send(data)
         })
     } else {
         data = await client.db("InventoryTracker").collection("Items").find().toArray().then((data) => {
-            console.log(data);
             res.send(data)
         })
     }
@@ -76,7 +74,6 @@ exports.delete = async (req, res) => {
 }
 
 exports.csv = async (req, res) => {
-    console.log("download");
 
     await client.connect()
     client.db("InventoryTracker").collection("Items").find().toArray().then((data) => {
