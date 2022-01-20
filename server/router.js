@@ -32,6 +32,7 @@ route.get("/update-item", function (req, res) {
 //CRUD routes
 route.post('/api/items', crud.create)
 route.get('/api/items', crud.read)
+route.get('/api/items/:id', crud.read)
 route.put('/api/items/:id', crud.update)
 route.delete('/api/items/:id', crud.delete)
 route.get('/downloadcsvfromJSON', crud.csv)
