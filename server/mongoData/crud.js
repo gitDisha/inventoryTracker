@@ -27,17 +27,26 @@ exports.read = async (req, res) => {
     }
 
     await client.connect();
-    client.db("InventoryTracker").collection("Items").findOne({ name: req.body.name }, (err, data) => {
-        console.log(data);
-        if (data) {
-            console.log("found data:" + data)
-        } else {
-            console.log("did not find any data")
-        }
-        res.send(data)
-    })
+    if (req.query.id) {
+        console.log(req.query);
+        client.db("InventoryTracker").collection("Items").findOne({ _id: new ObjectId(req.query.id) }, (err, data) => {
+            if (data) {
+                console.log("found data:" + data)
+            } else {
+                console.log("did not find any data")
+            }
+            res.send(data)
+        })
+    } else{
+        data = await client.db("InventoryTracker").collection("Items").find().toArray().then((data)=>{
+            console.log(data);
+            res.send(data)
+        })
+    }
+
 }
 exports.update = async (req, res) => {
+    console.log("updating");
     if (!req.body) {
         res.status(400).send("error: Please enter valid details")
         return

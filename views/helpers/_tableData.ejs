@@ -1,9 +1,12 @@
+<% for(var i=0; i<items.length; i++){  %> 
+
 <tr>
-    <td>Apple</td>
-    <td>43</td>
+    <td><%= i+1 %></td>
+    <td><%= items[i].name %> </td>
+    <td><%= items[i].quantity %> </td>
     <td>none</td>
     <td>
-        <a href="/edit-item" class="button border-shadow update">
+        <a href="/edit-item?id=<%= items[i]._id%>" class="button border-shadow update">
             <span class="text-gradient">Edit</span>
         </a>
         <a class="button border-shadow update">
@@ -11,3 +14,4 @@
         </a>
     </td>
 </tr>
+<% } %> 

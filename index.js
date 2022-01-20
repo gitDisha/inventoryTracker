@@ -26,6 +26,9 @@ app.use(require('./server/router'))
 //view engine that helps with templating. Simplest to use
 app.use(express.urlencoded({ extended: true }))
 
+app.use('/css', express.static(path.resolve(__dirname, "files/css")))
+app.use('/css', express.static(path.resolve(__dirname, "files/js")))
+
 const PORT = process.env.PORT || 3000;
 
 http.createServer(app).listen(PORT, function () {
