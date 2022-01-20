@@ -9,10 +9,10 @@ const mongoConnection = require('./server/mongoSetup')
 const express = require("express");
 const app = express();
 
-dotenv.config({ path: 'config.env'})
+dotenv.config({ path: 'config.env' })
 
 //log request
-app.use(morgan('tiny'));
+app.use(morgan('tiny'))
 
 //parsing requests
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -23,10 +23,11 @@ app.use(require('./server/router'))
 //view engine that helps with templating. Simplest to use
 app.use(express.urlencoded({ extended: true }))
 
-const PORT = process.env.PORT || 3000;
+//PORT
+const PORT = process.env.PORT || 3000
 
 http.createServer(app).listen(PORT, function () {
-    console.log(`Server is running on local port ${PORT}`);
+    console.log(`Server is running on local port ${PORT}`)
 });
 
 mongoConnection.mongoConnect()
