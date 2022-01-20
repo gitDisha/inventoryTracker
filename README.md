@@ -63,7 +63,6 @@ To download the data table send a `GET` request to the path
 ```
 http://<PORT>/download
 ```
-s
 
 
 
