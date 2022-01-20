@@ -18,7 +18,7 @@ Then install npm in the root directory using
 npm install
 ```
 
-Note: I have intentionally left the config.env file in the repo to make it easier to access for the reviewer. For other projects, I would ensure .env is hidden.
+##### Note: I have intentionally left the config.env file in the repo to make it easier to access for the reviewer. For other projects, I would ensure .env is hidden.
 
 To run the program use
 ```
