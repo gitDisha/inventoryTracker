@@ -11,7 +11,7 @@ async function mongoConnect (){
     } catch(err){
         console.log("error: mongoDb could not connect, %w", err)
     } finally{
-        await client.close();
+        // await client.close();
     }
 }
 
@@ -25,4 +25,4 @@ async function listDatabases(client){
 
 mongoConnect().catch(console.error);
 
-// module.exports = {mongoConnect}
+module.exports = {mongoConnect}

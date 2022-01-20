@@ -3,7 +3,7 @@ const dotenv = require('dotenv')
 const morgan = require('morgan')
 const bodyParser = require("body-parser");
 const path = require("path");
-const mongoConnection = require('./server/mongo')
+const mongoConnection = require('./server/mongoSetup')
 
 // const fs = require("fs");
 const express = require("express");
@@ -31,3 +31,5 @@ const PORT = process.env.PORT || 3000;
 http.createServer(app).listen(PORT, function () {
     console.log(`Server is running on local port ${PORT}`);
 });
+
+mongoConnection.mongoConnect()
