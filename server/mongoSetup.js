@@ -1,5 +1,6 @@
 const mongodb = require('mongodb')
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
+const res = require('express/lib/response');
 dotenv.config({path:'config.env'})
 
 async function mongoConnect (){
@@ -7,21 +8,12 @@ async function mongoConnect (){
     const client = new mongodb.MongoClient(mongoURI);
     try{
         await client.connect();
-        await  listDatabases(client);
     } catch(err){
         console.log("error: mongoDb could not connect, %w", err)
     } finally{
-        // await client.close();
+        await client.close();
     }
 }
-
-async function listDatabases(client){
-    databasesList = await client.db().admin().listDatabases();
- 
-    console.log("Databases:");
-    databasesList.databases.forEach(db => console.log(` - ${db.name}`));
-};
- 
 
 mongoConnect().catch(console.error);
 

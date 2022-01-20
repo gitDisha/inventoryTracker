@@ -22,10 +22,8 @@
   },
   "homepage": "https://github.com/gitDisha/inventoryTracker#readme",
   "dependencies": {
-    "axios": "^0.24.0",
     "body-parser": "^1.19.1",
     "dotenv": "^12.0.3",
-    "ejs": "^3.1.6",
     "express": "^4.17.2",
     "import": "^0.0.6",
     "mongodb": "^4.3.1",
