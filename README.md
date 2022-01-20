@@ -37,7 +37,7 @@ http://<PORT>/api/items/
 
 #### READ ALL
 
-###### Note: The Read operation provides the `_id` of the items that is required by other CRUD operations
+##### Note: The Read operation provides the `_id` of the items that is required by other CRUD operations
 
 To read the table in the inventory send a `GET` request to the path 
 ```
