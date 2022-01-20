@@ -1,11 +1,10 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient } = require('mongodb')
 var itemsData = require('./template')
 var ObjectId = require('mongodb').ObjectId;
 const client = new MongoClient(process.env.MONGO_URI);
-const csvwriter = require('csv-writer');
+const csvwriter = require('csv-writer')
 
 let createCsvWriter = csvwriter.createObjectCsvWriter;
-// var userDb = require('./template')
 
 exports.create = async (req, res) => {
     if (!req.body) {
@@ -19,7 +18,7 @@ exports.create = async (req, res) => {
     })
 
     await client.connect()
-    data = await client.db("InventoryTracker").collection("Items").insertOne(newItem);
+    data = await client.db("InventoryTracker").collection("Items").insertOne(newItem)
     res.send(data)
 }
 exports.read = async (req, res) => {
@@ -28,7 +27,7 @@ exports.read = async (req, res) => {
         return
     }
 
-    await client.connect();
+    await client.connect()
     if (req.params.id) {
         client.db("InventoryTracker").collection("Items").findOne({ _id: new ObjectId(req.params.id) }, (err, data) => {
             if (err) {
@@ -54,7 +53,7 @@ exports.update = async (req, res) => {
         name: req.body.name,
         quantity: req.body.quantity
     }
-    const id = req.params.id;
+    const id = req.params.id
 
     await client.connect();
     data = client.db("InventoryTracker").collection("Items").updateOne({ _id: new ObjectId(id) }, { $set: updatedItem })
@@ -66,7 +65,7 @@ exports.delete = async (req, res) => {
         return
     }
 
-    const id = req.params.id;
+    const id = req.params.id
 
     await client.connect()
     data = client.db("InventoryTracker").collection("Items").deleteOne({ _id: new ObjectId(id) })
@@ -77,7 +76,7 @@ exports.csv = async (req, res) => {
 
     await client.connect()
     client.db("InventoryTracker").collection("Items").find().toArray().then((data) => {
-        const path = 'inventory.csv';
+        const path = 'inventory.csv'
         const csvWriter = createCsvWriter({
             path: path,
             header: [{ id: 'name', title: 'Name' }, { id: 'quantity', title: 'Quantity' },]
@@ -85,10 +84,10 @@ exports.csv = async (req, res) => {
 
         try {
             csvWriter.writeRecords(data)
-                .then(() => { res.download(path); });
+                .then(() => { res.download(path); })
         }
         catch (error) {
-            console.log(error);
+            console.log(error)
         }
         res.status(200)
 
