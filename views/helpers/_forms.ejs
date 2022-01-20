@@ -1,0 +1,25 @@
+<!-- form -->
+<form action="/api/items" method="POST" id="add-item">
+    <div class="new-item">
+        <div class="form-group">
+            <label for="name" class="text-light">Item Name</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="name" value="" placeholder="Text">
+        </div>
+        <div class="form-group">
+            <label for="quantity" class="text-light">Available quanitity</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="quanitity" value="" placeholder="Integer">
+        </div>
+        <div class="form-group">
+            <label for="image" class="text-light">Image</label>
+            <input type="hidden" name="id" value="">
+            <input type="file" name="image" value="" placeholder="File">
+            <button type="button">Upload</button>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Add item</button>
+        </div>
+    </div>
+</form>
