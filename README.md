@@ -64,7 +64,8 @@ http://<PORT>/download
 ```
 # Example 
 To create item:
-<img width="1277" alt="postman" src="https://user-images.githubusercontent.com/50040643/151421301-66705ee3-bff5-46a5-8467-086082f2d1dc.png">
+<img width="1276" alt="postman" src="https://user-images.githubusercontent.com/50040643/151421798-58b0b4e4-ac65-4cee-9dfc-b7514bfbcd3e.png">
+
 
 
 
