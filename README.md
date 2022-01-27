@@ -62,6 +62,9 @@ To download the data table send a `GET` request to the path
 ```
 http://<PORT>/download
 ```
+# Example 
+To create item:
+<img width="1277" alt="postman" src="https://user-images.githubusercontent.com/50040643/151421301-66705ee3-bff5-46a5-8467-086082f2d1dc.png">
 
 
 
