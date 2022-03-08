@@ -3,8 +3,6 @@ Author: Disha Singh Nath
 Date: January 19th, 2022
 
 # inventoryTracker
-This is the Shopify intern challenge - summer 2022
-
 
 # How to Setup:
 
